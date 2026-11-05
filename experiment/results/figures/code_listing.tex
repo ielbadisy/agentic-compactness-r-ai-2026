@@ -1,0 +1,28 @@
+\documentclass[border=4pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[scaled=0.92]{beramono}
+\usepackage{xcolor}
+\usepackage{fvextra}
+\input{../../../diagrams/style.tex}
+\input{code_counts.tex}
+\fvset{commandchars=\\\{\},fontsize=\scriptsize,breaklines=true,
+  breakanywhere=false,breaksymbolleft={},breakindent=1.2em,baselinestretch=1}
+\newcommand{\colhead}[4]{%
+  {\color{#2}\rule{\linewidth}{2pt}}\par\vspace{2pt}
+  {\normalsize\bfseries\color{ink}#1}\hfill
+  {\footnotesize\color{inkmuted}#3 lines \textperiodcentered{} \textbf{#4} framework calls}\par\vspace{3pt}}
+\begin{document}
+\begin{minipage}[t]{7.2cm}\vspace{0pt}
+\colhead{funcml}{cfuncml}{\LOCfuncml}{\CALLSfuncml}
+\VerbatimInput{code_funcml.tex}
+\end{minipage}\hspace{1.2em}%
+\begin{minipage}[t]{9.6cm}\vspace{0pt}
+\colhead{mlr3}{cmlr}{\LOCmlrthree}{\CALLSmlrthree}
+\VerbatimInput{code_mlr3.tex}
+\end{minipage}\hspace{1.2em}%
+\begin{minipage}[t]{9.6cm}\vspace{0pt}
+\colhead{tidymodels}{ctidy}{\LOCtidymodels}{\CALLStidymodels}
+\VerbatimInput{code_tidymodels.tex}
+\end{minipage}
+\end{document}

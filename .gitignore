@@ -1,0 +1,21 @@
+# Whitelist: only the experiment code is tracked.
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/experiment-biobench/
+/experiment-biobench/*
+!/experiment-biobench/R/
+!/experiment-biobench/issues/
+/experiment-biobench/issues/*
+!/experiment-biobench/issues/reprex/
+!/experiment/
+/experiment/*
+!/experiment/R/
+/experiment/R/*
+!/experiment/R/measure_compactness.R
+!/experiment/results/
+/experiment/results/*
+!/experiment/results/figures/
+/experiment/results/figures/*
+!/experiment/results/figures/code_listing.tex
