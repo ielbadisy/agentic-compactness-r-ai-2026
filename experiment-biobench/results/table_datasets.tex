@@ -1,0 +1,16 @@
+\begin{tabular}{lllrrrrrl}
+\toprule
+Dataset & Task & Outcome & Outcome summary & $n$ & Predictors & Factors & Missing (\%) & Source \\
+\midrule
+covidtest & Class. & SARS-CoV-2 test positive & 6\% Yes & 15,223 & 9 (60) & 5 & 10.2 & \texttt{medicaldata::covid\_testing} \\
+nhanes & Class. & Obesity (BMI > 35) & 15\% Yes & 6,445 & 13 (17) & 7 & 3.1 & \texttt{aplore3::nhanes} \\
+opt & Class. & Pregnancy ended before 37 weeks & 12\% Yes & 812 & 56 (59) & 16 & 25.3 & \texttt{medicaldata::opt} \\
+pima2 & Class. & Diabetes & 35\% Yes & 768 & 8 & 0 & 10.6 & \texttt{mlbench::PimaIndiansDiabetes2} \\
+glow500 & Class. & Fracture in first year & 25\% Yes & 500 & 11 (12) & 6 & 0 & \texttt{aplore3::glow500} \\
+aidsdelay & Regr. & AIDS cases reported & mean 11 (SD 25) & 570 & 5 & 0 & 0 & \texttt{boot::aids} \\
+birthwt & Regr. & Birth weight (g) & mean 2945 (SD 729) & 189 & 8 & 0 & 0 & \texttt{MASS::birthwt} \\
+laryngoscope & Regr. & Intubation time (s) & mean 37 (SD 21) & 99 & 6 & 0 & 0.5 & \texttt{medicaldata::laryngoscope} \\
+smartpill & Regr. & Whole-gut transit time (h) & mean 58 (SD 100) & 94 & 18 & 0 & 11.3 & \texttt{medicaldata::smartpill} \\
+anorexia & Regr. & Weight after treatment (lb) & mean 85 (SD 8) & 72 & 2 & 1 & 0 & \texttt{MASS::anorexia} \\
+\bottomrule
+\end{tabular}

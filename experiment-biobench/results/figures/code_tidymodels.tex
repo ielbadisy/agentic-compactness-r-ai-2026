@@ -1,0 +1,21 @@
+set.seed(seed)
+spec <- \fw{set_mode}(
+  \fw{set_engine}(\fw{boost_tree}(trees = \fw{tune}(), tree_depth = \fw{tune}(), learn_rate = \fw{tune}()),
+             "xgboost", nthread = 1),
+  if (is_classif) "classification" else "regression")
+wf <- \fw{workflow}(\fw{recipe}(stats::reformulate(".", outcome), data = train), spec)
+grid <- data.frame(trees = TUNE_GRID$nrounds, tree_depth = TUNE_GRID$max_depth,
+                   learn_rate = TUNE_GRID$eta)
+metric <- if (is_classif) "roc_auc" else "rmse"
+metrics <- if (is_classif) \fw{metric_set}(roc_auc) else \fw{metric_set}(rmse)
+rs <- \fw{manual_rset}(lapply(seq_len(CV_FOLDS), function(k) \LB{}
+  \fw{make_splits}(list(analysis = which(folds != k), assessment = which(folds == k)), train)
+\RB{}), paste0("Fold", seq_len(CV_FOLDS)))
+res <- \fw{tune_grid}(wf, rs, grid = grid, metrics = metrics)
+best <- \fw{select_best}(res, metric = metric)
+final <- \fw{fit}(\fw{finalize_workflow}(wf, best), data = train)
+pred <- if (is_classif) \LB{}
+  predict(final, test, type = "prob")$.pred_Yes
+\RB{} else \LB{}
+  predict(final, test)$.pred
+\RB{}

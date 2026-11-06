@@ -1,4 +1,4 @@
-# Agentic Compactness: Measuring the Cost of AI-Generated Machine Learning Workflows in R
+# Agentic Compactness: Measuring the Cost of Machine Learning Workflows in R
 
 Code for the R+AI 2026 talk (R Consortium, 10 November 2026).
 
@@ -23,6 +23,8 @@ experiment-biobench/
     make_*.R                tables and figures from the run outputs
     workflows/              one script per scenario x framework
   issues/reprex/            minimal reproducible examples of issues met (E1-E5)
+  results/                  final results: summary tables, figures, and per-run
+                            metrics, timings, memory and attached packages
 experiment/
   R/measure_compactness.R   counting rules shared with the code listing
 ```

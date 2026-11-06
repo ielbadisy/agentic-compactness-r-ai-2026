@@ -1,0 +1,10 @@
+"scenario","framework","workflow_loc","statements","total_calls","framework_calls","distinct_framework_fns","framework_constructors"
+"compare","funcml",15,7,18,3,3,3
+"compare","mlr3",31,14,26,13,9,10
+"compare","tidymodels",25,10,31,18,14,15
+"preprocess","funcml",29,9,42,4,3,2
+"preprocess","mlr3",33,16,31,17,11,14
+"preprocess","tidymodels",28,10,37,24,19,18
+"tune","funcml",8,2,6,2,2,2
+"tune","mlr3",26,11,22,17,14,13
+"tune","tidymodels",21,11,33,16,13,11

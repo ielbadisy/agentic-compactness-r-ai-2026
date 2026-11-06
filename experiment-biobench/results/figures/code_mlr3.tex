@@ -1,0 +1,26 @@
+set.seed(seed)
+tt <- if (is_classif) \LB{}
+  \fw{as_task_classif}(train, target = outcome, positive = "Yes")
+\RB{} else \LB{}
+  \fw{as_task_regr}(train, target = outcome)
+\RB{}
+rs <- \fw{rsmp}("custom_cv")
+rs$instantiate(tt, f = factor(folds))
+learner <- \fw{lrn}(if (is_classif) "classif.xgboost" else "regr.xgboost", nthread = 1)
+if (is_classif) learner$\fw{predict_type} <- "prob"
+at <- \fw{auto_tuner}(
+  tuner = \fw{tnr}("design_points", design = data.table::\fw{as.data.table}(TUNE_GRID)),
+  learner = learner,
+  resampling = rs,
+  measure = \fw{msr}(if (is_classif) "classif.auc" else "regr.rmse"),
+  search_space = \fw{ps}(nrounds = \fw{p_int}(1, 1000), max_depth = \fw{p_int}(1, 20),
+                    eta = \fw{p_dbl}(0, 1))
+)
+at$train(tt)
+new_tt <- if (is_classif) \LB{}
+  \fw{as_task_classif}(test, target = outcome, positive = "Yes")
+\RB{} else \LB{}
+  \fw{as_task_regr}(test, target = outcome)
+\RB{}
+prediction <- at$predict(new_tt)
+pred <- if (is_classif) prediction$\fw{prob}[, "Yes"] else prediction$\fw{response}

@@ -19,3 +19,7 @@
 !/experiment/results/figures/
 /experiment/results/figures/*
 !/experiment/results/figures/code_listing.tex
+# Final results (no console logs)
+!/experiment-biobench/results/
+/experiment-biobench/results/*.log
+/experiment-biobench/results/runs/*/log.txt

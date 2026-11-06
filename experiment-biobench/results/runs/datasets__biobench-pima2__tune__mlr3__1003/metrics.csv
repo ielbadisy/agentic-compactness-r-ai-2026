@@ -1,0 +1,2 @@
+"auc","accuracy","balanced_accuracy","brier","calibration_slope","selected","n_train","n_test","p"
+0.780555555555556,0.720779220779221,0.691296296296296,0.180945586249135,0.6058083797274,"nrounds=150/max_depth=2/eta=0.05",614,154,8

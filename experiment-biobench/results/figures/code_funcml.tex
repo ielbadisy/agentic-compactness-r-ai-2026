@@ -1,0 +1,8 @@
+tuned <- \fw{tune}(train, form, model = "xgboost", grid = TUNE_GRID,
+              resampling = \fw{group_cv}(v = CV_FOLDS, group = folds),
+              metric = if (is_classif) "auc" else "rmse", seed = seed, nthread = 1)
+pred <- if (is_classif) \LB{}
+  predict(tuned$fit_best, newdata = test, type = "prob")[, "Yes"]
+\RB{} else \LB{}
+  predict(tuned$fit_best, newdata = test)
+\RB{}

@@ -1,0 +1,22 @@
+\begin{tabular}{l rrrrr rrr}
+\toprule
+ & \multicolumn{5}{c}{Code surface (counts)} & \multicolumn{3}{c}{Execution (median of 30 runs)} \\
+\cmidrule(lr){2-6}\cmidrule(lr){7-9}
+Framework & Lines & Calls & Functions & Objects & Packages & Load, s & Total, s & Peak, MiB \\
+\midrule
+\multicolumn{9}{l}{\emph{Compare 3 learners}} \\
+\texttt{funcml} & \textbf{15} & \textbf{3} & \textbf{3} & \textbf{3} & \textbf{1} & \textbf{0.01} & \textbf{1.5} & \textbf{259} \\
+\texttt{mlr3} & 31 & 13 & 9 & 10 & 2 & 0.22 & 2.0 & 274 \\
+\texttt{tidymodels} & 25 & 18 & 14 & 15 & 18 & 2.78 & 4.5 & 404 \\
+\addlinespace
+\multicolumn{9}{l}{\emph{Impute + encode + compare}} \\
+\texttt{funcml} & 29 & \textbf{4} & \textbf{3} & \textbf{2} & \textbf{1} & \textbf{0.01} & \textbf{1.5} & \textbf{256} \\
+\texttt{mlr3} & 33 & 17 & 11 & 14 & 3 & 0.28 & 5.4 & 421 \\
+\texttt{tidymodels} & \textbf{28} & 24 & 19 & 18 & 18 & 2.66 & 5.0 & 402 \\
+\addlinespace
+\multicolumn{9}{l}{\emph{Tune xgboost (12-point grid)}} \\
+\texttt{funcml} & \textbf{8} & \textbf{2} & \textbf{2} & \textbf{2} & \textbf{1} & \textbf{0.01} & \textbf{1.8} & \textbf{231} \\
+\texttt{mlr3} & 26 & 17 & 14 & 13 & 4 & 0.30 & 3.6 & 266 \\
+\texttt{tidymodels} & 21 & 16 & 13 & 11 & 18 & 2.81 & 6.3 & 384 \\
+\bottomrule
+\end{tabular}
