@@ -13,6 +13,8 @@ time, run time and peak memory.
 ## Layout
 
 ```
+slides/
+  agentic-compactness-RAI2026-slides.pdf   R+AI 2026 talk slides (PDF)
 experiment-biobench/
   R/
     run_experiment.R        runs every workflow in a fresh Rscript process

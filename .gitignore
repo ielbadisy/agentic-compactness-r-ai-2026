@@ -3,6 +3,9 @@
 !/.gitignore
 !/README.md
 !/LICENSE
+!/slides/
+/slides/*
+!/slides/agentic-compactness-RAI2026-slides.pdf
 !/experiment-biobench/
 /experiment-biobench/*
 !/experiment-biobench/R/
